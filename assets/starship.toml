@@ -36,7 +36,7 @@ red = '#ff6e5e'
 show_always = true
 style_user = "fg:text bold"
 style_root = "fg:red bold"
-format = '[ MorfShell ]($style)'
+format = '[ user-name ]($style)'
 
 [os]
 disabled = false
