@@ -6,7 +6,7 @@ GREEN='\033[1;32m'
 CYAN='\033[1;36m'
 RESET='\033[0m'
 
-DEPS=(git tte fish eza bat)
+DEPS=(git tte fish eza bat starship)
 
 echo -e "${CYAN}[*] Checking dependencies...${RESET}"
 for p in "${DEPS[@]}"; do
@@ -38,7 +38,7 @@ mkdir -p ~/.config/fish ~/.config ~/.termux
 cp "$ASSETS/config.fish" ~/.config/fish/config.fish
 cp "$ASSETS/font.ttf" "$ASSETS/colors.properties" ~/.termux
 
-sed "s/MorfShell/$NAME/g" "$ASSETS/starship.config" > ~/.config/starship.toml
+sed "s/MorfShell/$NAME/g" "$ASSETS/starship.toml" > ~/.config/starship.toml
 sed "s/MorfShell/$NAME/g" "$ASSETS/motd" > ~/.config/morfshell
 
 
