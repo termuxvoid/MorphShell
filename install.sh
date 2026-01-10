@@ -6,6 +6,23 @@ GREEN='\033[1;32m'
 CYAN='\033[1;36m'
 RESET='\033[0m'
 
+clear
+echo -e "${CYAN}
+ __  __             __ _____ _          _ _ 
+|  \/  |           / _/ ____| |        | | |
+| \  / | ___  _ __| || (___ | |__   ___| | |
+| |\/| |/ _ \| '__|  _\___ \| '_ \ / _ \ | |
+| |  | | (_) | |  | | ____) | | | |  __/ | |
+|_|  |_|\___/|_|  |_||_____/|_| |_|\___|_|_|
+${RESET}"
+
+echo -e "${GREEN}
+A sleek Termux theme with a smart prompt,
+syntax highlighting, and a dynamic animated
+banner that changes every session.
+${RESET}"
+
+rm -rf $PREFIX/etc/motd
 DEPS=(git tte fish eza bat starship)
 
 echo -e "${CYAN}[*] Checking dependencies...${RESET}"
@@ -21,7 +38,7 @@ DIR="$TMPDIR/MorphShell"
 rm -rf "$DIR"
 
 echo -e "${CYAN}[*] Cloning MorphShell...${RESET}"
-git clone https://github.com/termuxvoid/MorphShell "$DIR"
+git clone -q https://github.com/termuxvoid/MorphShell "$DIR"
 
 ASSETS="$DIR/assets"
 
@@ -38,8 +55,7 @@ mkdir -p ~/.config/fish ~/.config ~/.termux
 cp "$ASSETS/config.fish" ~/.config/fish/config.fish
 cp "$ASSETS/font.ttf" "$ASSETS/colors.properties" ~/.termux
 
-sed "s/MorfShell/$NAME/g" "$ASSETS/starship.toml" > ~/.config/starship.toml
-sed "s/MorfShell/$NAME/g" "$ASSETS/motd" > ~/.config/morfshell
-
+sed "s/user-name/$NAME/g" "$ASSETS/starship.toml" > ~/.config/starship.toml
+sed "s/user-name/$NAME/g" "$ASSETS/motd" > ~/.config/morfshell
 
 echo -e "${GREEN}[✓] MorphShell installed. Restart Termux.${RESET}"
