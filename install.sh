@@ -47,8 +47,8 @@ if [ "$(basename "$SHELL")" != "fish" ]; then
   chsh -s fish
 fi
 
-read -rp "Enter prompt name [MorfShell]: " NAME
-NAME="${NAME:-MorfShell}"
+read -rp "Enter prompt name [MorphShell]: " NAME
+NAME="${NAME:-MorphShell}"
 
 mkdir -p ~/.config/fish ~/.config ~/.termux
 
@@ -56,6 +56,7 @@ cp "$ASSETS/config.fish" ~/.config/fish/config.fish
 cp "$ASSETS/font.ttf" "$ASSETS/colors.properties" ~/.termux
 
 sed "s/user-name/$NAME/g" "$ASSETS/starship.toml" > ~/.config/starship.toml
-sed "s/user-name/$NAME/g" "$ASSETS/motd" > ~/.config/morfshell
+sed "s/user-name/$NAME/g" "$ASSETS/motd" > ~/.config/morphshell
 
 echo -e "${GREEN}[✓] MorphShell installed. Restart Termux.${RESET}"
+

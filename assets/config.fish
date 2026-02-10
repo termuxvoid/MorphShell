@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 function fish_greeting
-tte -i ~/.config/morfshell --random-effect
+tte --frame-rate 500 -i ~/.config/morphshell --random-effect
 end
 # navigation
 alias ..='cd ..'

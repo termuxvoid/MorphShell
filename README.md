@@ -16,7 +16,7 @@ A sleek Termux theme with a smart prompt, syntax highlighting, and a dynamic ani
 
 > Available only for TermuxVoid repo users
 ```
-apt install morfshell -y
+apt install morphshell -y
 ```
 
 After installation:

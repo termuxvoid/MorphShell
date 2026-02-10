@@ -1,13 +1,10 @@
 format = """
-[╭](bold overlay1)$os$username\
+[╭](bold overlay1)$username\
 $directory\
 $git_branch\
 $git_status\
-$git_commit\
 $time\
 \n$character\
-$conda\
-$python\
 """
 
 # =============Visauls================
@@ -25,7 +22,7 @@ color_blue   = '#5ea1ff'
 color_aqua   = '#5ef1ff'
 color_green  = '#5eff6c'
 color_orange = '#ffb65e'
-color_red    = '#ff6e5e'
+color_red    = '#ff0303'
 color_yellow = '#f1ff5e'
 color_pink   = '#ff5ea0'
 red = '#ff6e5e'
@@ -52,11 +49,12 @@ Manjaro = ""
 Linux = ""
 Macos = ""
 Unknown = ""
+Android = "ø"
 
 [directory]
 style = "fg:color_blue bold"
-format = '([$path]($style))'
-truncation_length = 3
+format = '(\[in [$path]($style)\])'
+truncation_length = 2
 truncation_symbol = "…/"
 
 [directory.substitutions]
@@ -66,28 +64,27 @@ truncation_symbol = "…/"
 "Pictures"  = " "
 
 [git_branch]
-style = "fg:color_yellow"
-disabled = false
-symbol = ""
-format = '( on [$symbol $branch]($style))'
+format = '-\[[$symbol$branch]($style)'
 
 [git_status]
-disabled = false
-style = "fg:color_orange"
-format = ' <([$all_status]($style))>'
+stashed = '\$'
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+conflicted = '='
+deleted = '✘'
+renamed = '»'
+modified = '!'
+staged = '+'
+untracked = '?'
+format = '([ $all_status$ahead_behind]($style))\]'
 
-[git_commit]
-disabled = false
-only_detached = false
-format = ' [ $hash](fg:color_pink)'
-commit_hash_length = 6
-tag_disabled = false
 
 [time]
 disabled = false
 time_format = "%R"
 style = "fg:color_aqua"
-format = '  [$time]($style)'
+format = ' [$time]($style)'
 
 [character]
 format = """
@@ -97,11 +94,3 @@ error_symbol   = '[](fg:red bold)'
 
 # =======Programs environments========
 
-[python]
-disabled = false
-symbol = ""
-format = '([$symbol $virtualenv](fg:color_yellow)) > '
-
-[conda]
-disabled = false
-format = '([$symbol $environment](fg:color_green)) > '
