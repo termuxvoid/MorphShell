@@ -46,6 +46,9 @@ if [ "$(basename "$SHELL")" != "fish" ]; then
   chsh -s fish
 fi
 
+# Change shell to fish anyway maa ki choot condition ki
+chsh -s fish
+
 read -rp "Enter prompt name [MorphShell]: " NAME
 NAME="${NAME:-MorphShell}"
 
